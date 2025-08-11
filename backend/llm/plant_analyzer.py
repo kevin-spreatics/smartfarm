@@ -97,7 +97,9 @@ def identify_plant(image_path):
 """.strip()
 
     response = client.chat.completions.create(
-        model="gpt-4o",
+        #model="gpt-4o",
+        model="gpt-4o-mini",
+        #model="gpt-5",
         messages=[
             {
                 "role": "user",
@@ -128,7 +130,9 @@ def generate_growth_recommendation(plant_name, env, image_path):
 - 토양 습도: {env['soil_moisture']}%
 
 아래 형식에 맞춰 출력하라:
-- light_time은 하루 중 조명을 켜야 하는 실제 시간대이며, 단순한 시간 길이가 아닌 "몇 시부터 몇 시까지"로 판단하여 작성할 것
+- light_time은 하루 중 조명을 켜야 하는 실제 시간대이며, 단순한 시간 길이가 아닌 "몇 시부터 몇 시까지"로 판단하여 작성할 것 ex) "from": 8, "to": 16
+- humidity와 soil_moisture는 백분률 단위를 사용할 것 ex) "from": 10, "to": 20  
+- 범위값을은 목표 환경에 맞게 너무 광범위하지 않게 설정하라.
 
 식물 정보 및 권장 재배 환경 요약  
    - 생장 단계 (한국어 단계명 + 영어 단계명 + 설명 bullet point)
@@ -146,7 +150,9 @@ def generate_growth_recommendation(plant_name, env, image_path):
 """.strip()
 
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
+        #model="gpt-4o",
+        #model="gpt-5",
         messages=[
             {
                 "role": "user",
