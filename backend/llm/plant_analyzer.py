@@ -150,8 +150,8 @@ def generate_growth_recommendation(plant_name, env, image_path):
 """.strip()
 
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        #model="gpt-4o",
+        #model="gpt-4o-mini",
+        model="gpt-4o",
         #model="gpt-5-mini",
         #model="gpt-5",
         messages=[
