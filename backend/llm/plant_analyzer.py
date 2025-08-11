@@ -98,8 +98,9 @@ def identify_plant(image_path):
 
     response = client.chat.completions.create(
         #model="gpt-4o",
-        model="gpt-4o-mini",
-        #model="gpt-5",
+        #model="gpt-4o-mini",
+        #model="gpt-5-mini",
+        model="gpt-5",
         messages=[
             {
                 "role": "user",
@@ -137,7 +138,6 @@ def generate_growth_recommendation(plant_name, env, image_path):
 식물 정보 및 권장 재배 환경 요약  
    - 생장 단계 (한국어 단계명 + 영어 단계명 + 설명 bullet point)
    - 발육 상태 (색상, 형태, 병충해, 결구 진행 상태)
-   - 권장 재배 환경 요약
 
 ```json
 {{
@@ -152,6 +152,7 @@ def generate_growth_recommendation(plant_name, env, image_path):
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         #model="gpt-4o",
+        #model="gpt-5-mini",
         #model="gpt-5",
         messages=[
             {
